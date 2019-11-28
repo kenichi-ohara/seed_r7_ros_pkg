@@ -16,3 +16,6 @@ endif()
 
 install(DIRECTORY meshes urdf typef csv
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+  install(DIRECTORY meshes urdf typeg csv
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

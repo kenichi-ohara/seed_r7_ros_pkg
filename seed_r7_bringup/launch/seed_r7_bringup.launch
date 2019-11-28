@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="robot_model_plugin" default="seed_r7_robot_interface/TypeF"/>
+  <!-- <arg name="robot_model_plugin" default="seed_r7_robot_interface/TypeF"/> -->
+  <arg name="robot_model_plugin" default="seed_r7_robot_interface/TypeG"/>
 
   <!-- parameters when using models in official package -->
-  <arg name="robot_model"         default="typef"/>
+  <!-- <arg name="robot_model"         default="typef"/> -->
+  <arg name="robot_model"         default="typeg"/>
 
   <!-- parameters when using models in user packages -->
-  <arg name="csv_config_dir"      default="$(find seed_r7_description)/csv"/>
+  <arg name="csv_config_dir"      default="$(find seed_r7_description)/$(arg robot_model)/csv"/>
   <arg name="robot_joint_config"  default="$(find seed_r7_robot_interface)/$(arg robot_model)/config/joint_settings.yaml"/>
   <arg name="controller_settings" default="$(find seed_r7_description)/$(arg robot_model)/controller_settings.yaml"/>
   <arg name="moveit_config_pkg"   default="$(find seed_r7_moveit_config)/../seed_r7_$(arg robot_model)_moveit_config"/>
