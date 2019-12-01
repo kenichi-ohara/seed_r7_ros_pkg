@@ -16,6 +16,21 @@ void seed_converter::TypeG::makeTables()
   if (makeTable(waist_p.table, "waist_p.csv")) makeInvTable(waist_p.inv_table, waist_p.table);
   if (makeTable(waist_r.table, "waist_r.csv")) makeInvTable(waist_r.inv_table, waist_r.table);
   if (makeTable(leg.table, "leg.csv")) makeInvTable(leg.inv_table, leg.table);
+
+  diff_joint_.resize(raw_data_size_);
+  fill(diff_joint_.begin(),diff_joint_.end(),std::make_pair(false,0));
+  //waist
+  diff_joint_.at(1) = std::make_pair(true,2);
+  diff_joint_.at(2) = std::make_pair(true,1);
+  //left wrist
+  diff_joint_.at(8) = std::make_pair(true,9);
+  diff_joint_.at(9) = std::make_pair(true,8);
+  //neck
+  diff_joint_.at(15) = std::make_pair(true,16);
+  diff_joint_.at(16) = std::make_pair(true,15);
+  //right wrist
+  diff_joint_.at(22) = std::make_pair(true,23);
+  diff_joint_.at(23) = std::make_pair(true,22);
 }
 
 void seed_converter::TypeG::Angle2Stroke

@@ -12,9 +12,15 @@ seed_converter::StrokeConverter::~StrokeConverter()
 bool seed_converter::StrokeConverter::initialize(ros::NodeHandle& _nh)
 {
   if (!_nh.hasParam("csv_config_dir")) return false;
-
+  
   _nh.getParam("csv_config_dir", file_path_);  // e.g. $(find package)/config/csv
 
+  if (!_nh.hasParam("/joint_settings/raw_data_size"))
+  {
+    _nh.getParam("/joint_settings/raw_data_size", raw_data_size_);
+  }
+  else raw_data_size_ = 31;
+  
   ROS_INFO("start to make stroke convert table");
   makeTables();
   ROS_INFO("finish to make stroke convert table");

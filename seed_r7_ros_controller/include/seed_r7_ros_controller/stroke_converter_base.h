@@ -44,6 +44,8 @@ public:
   virtual void Angle2Stroke(std::vector<int16_t>& _strokes, const std::vector<double>& _angles)=0;
   virtual void Stroke2Angle(std::vector<double>& _angles, const std::vector<int16_t>& _strokes)=0;
 
+  std::vector<std::pair<bool,int>> diff_joint_;
+
 protected:
   bool makeTable(std::vector<StrokeMap>& _table, const std::string _file_name);
   void makeInvTable(std::vector<StrokeMap>& _inv_table, const std::vector<StrokeMap>& _table);
@@ -56,6 +58,8 @@ protected:
    const bool _is_pitch=false);
 
   std::string file_path_;
+  int raw_data_size_;
+
 };
 
 }
