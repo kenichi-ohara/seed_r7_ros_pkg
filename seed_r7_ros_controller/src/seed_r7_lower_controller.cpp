@@ -77,6 +77,11 @@ void robot_hardware::LowerController::remapRosToAero
   }
 }
 
+void robot_hardware::LowerController::runScript(uint8_t _number, uint16_t _script)
+{
+    if(is_open_)lower_->runScript(_number, _script);
+}
+
 void robot_hardware::LowerController::sendVelocity(std::vector<int16_t>& _data)
 {
   std::vector<int16_t> send_data(wheel_table_.size());

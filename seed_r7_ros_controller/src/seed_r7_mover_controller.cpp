@@ -43,6 +43,9 @@ robot_hardware::MoverController::MoverController
   // for odometory
   odom_pub_ = nh_.advertise<nav_msgs::Odometry>("odom", 1);
   odom_timer_ = nh_.createTimer(ros::Duration(odom_rate_), &MoverController::calculateOdometry, this);
+
+  led_control_server_
+    = nh_.advertiseService("led_control", &MoverController::ledControlCallback,this);
 }
 
 //////////////////////////////////////////////////
@@ -222,4 +225,15 @@ void robot_hardware::MoverController::velocityToWheel
     _wheel_vel[1] = front_right_wheel;
     _wheel_vel[2] = rear_left_wheel;
     _wheel_vel[3] = rear_right_wheel;
+}
+
+bool robot_hardware::MoverController::ledControlCallback
+  (seed_r7_ros_controller::LedControl::Request&  _req,
+  seed_r7_ros_controller::LedControl::Response& _res)
+{
+  hw_->runLedScript(_req.send_number, _req.script_number);
+
+  _res.result = "LED succeeded";
+
+  return true;
 }

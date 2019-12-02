@@ -13,6 +13,7 @@
 
 #include "seed_r7_ros_controller/seed_r7_lower_controller.h"
 #include "seed_r7_ros_controller/seed_r7_robot_hardware.h"
+#include "seed_r7_ros_controller/LedControl.h"
 
 
 #define MAX_ACC_X 1.0
@@ -41,6 +42,7 @@ class MoverController
   void safetyCheckCallback(const ros::TimerEvent& _event);
   void calculateOdometry(const ros::TimerEvent& _event);
   void velocityToWheel(double _linear_x, double _linear_y, double _angular_z, std::vector<int16_t>& _wheel_vel);
+  bool ledControlCallback(seed_r7_ros_controller::LedControl::Request& _req, seed_r7_ros_controller::LedControl::Response& _res);
 
   ros::NodeHandle nh_;
   ros::Publisher odom_pub_;
@@ -48,6 +50,8 @@ class MoverController
   ros::Timer odom_timer_, safe_timer_;
   ros::Subscriber cmd_vel_sub_;
   tf::TransformBroadcaster odom_broadcaster_;
+
+  ros::ServiceServer led_control_server_;
 
 /*
   ros::SubscribeOptions base_ops_;
