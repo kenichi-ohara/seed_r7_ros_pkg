@@ -137,6 +137,8 @@ protected:
 
   pluginlib::ClassLoader<seed_converter::StrokeConverter> converter_loader_;
   boost::shared_ptr<seed_converter::StrokeConverter> stroke_converter_;
+
+  bool always_update_pos_;
 };
 
 }

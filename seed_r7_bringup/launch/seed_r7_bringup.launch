@@ -16,6 +16,7 @@
   <!-- other settings -->
   <arg name="controller_rate"     default="50"/>
   <arg name="overlap_scale"       default="2.0"/>
+  <arg name="always_update_pos"   default="false"/>
 
   <!-- controller settings / load from yaml -->
   <rosparam command="load" file="$(arg controller_settings)" />
@@ -29,6 +30,7 @@
     <param name="robot_model_plugin" value="$(arg robot_model_plugin)"/>
     <param name="controller_rate" value="$(arg controller_rate)"/> <!-- [ Hz ] ( rate of read/write cycle) -->
     <param name="overlap_scale"   value="$(arg overlap_scale)"/>   <!-- scaling of target time -->
+    <param name="always_update_pos"   value="$(arg always_update_pos)"/>
   </node>
 
   <rosparam>

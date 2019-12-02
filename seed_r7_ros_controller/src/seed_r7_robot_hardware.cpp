@@ -76,6 +76,11 @@ namespace robot_hardware
       OVERLAP_SCALE_    = 2.8;
     }
 
+    if (robot_hw_nh.hasParam("always_update_pos"))
+      robot_hw_nh.getParam("always_update_pos", always_update_pos_);
+    else
+      always_update_pos_ = true;
+
     ROS_INFO("upper_port: %s", port_upper.c_str());
     ROS_INFO("lower_port: %s", port_lower.c_str());
     ROS_INFO("cycle: %f [ms], overlap_scale %f", CONTROL_PERIOD_US_*0.001, OVERLAP_SCALE_);
@@ -313,10 +318,26 @@ namespace robot_hardware
     mutex_upper_.lock();
     {
       std::thread t1([&](){
-          controller_upper_->sendPosition(time_csec, upper_strokes);
+          if(always_update_pos_) controller_upper_->sendPosition(time_csec, upper_strokes);
+          else{
+            for(auto it = upper_strokes.begin();it != upper_strokes.end(); ++it){
+              if( *it != 0x7FFF){
+                controller_upper_->sendPosition(time_csec, upper_strokes);
+                break;
+              }
+            }
+          }
         });
       std::thread t2([&](){
-          controller_lower_->sendPosition(time_csec, lower_strokes);
+          if(always_update_pos_) controller_lower_->sendPosition(time_csec, lower_strokes);
+          else{
+            for(auto it = lower_strokes.begin();it != lower_strokes.end(); ++it){
+              if( *it != 0x7FFF){
+                controller_lower_->sendPosition(time_csec, lower_strokes);
+                break;
+              }
+            }
+          }
         });
       t1.join();
       t2.join();
