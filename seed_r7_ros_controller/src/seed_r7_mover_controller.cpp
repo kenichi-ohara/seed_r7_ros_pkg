@@ -9,18 +9,18 @@ robot_hardware::MoverController::MoverController
 {
   //--- calcurate the coefficient(k1_,k2_) for wheel FK--
   float wheel_radius,tread,wheelbase;
-  nh_.getParam("seed_r7_mover_controller/wheel_radius", wheel_radius);
-  nh_.getParam("seed_r7_mover_controller/tread", tread);
-  nh_.getParam("seed_r7_mover_controller/wheelbase", wheelbase);
+  nh_.getParam("/seed_r7_mover_controller/wheel_radius", wheel_radius);
+  nh_.getParam("/seed_r7_mover_controller/tread", tread);
+  nh_.getParam("/seed_r7_mover_controller/wheelbase", wheelbase);
 
   k1_ =  - sqrt(2) * ( sqrt( pow(tread,2)+pow(wheelbase,2) )/2 ) * sin( M_PI/4 + atan2(tread/2,wheelbase/2) ) / wheel_radius;
   k2_ = 1 / wheel_radius;
   //---------
 
-  nh_.getParam("seed_r7_mover_controller/ros_rate", ros_rate_);
-  nh_.getParam("seed_r7_mover_controller/odom_rate", odom_rate_);
-  nh_.getParam("seed_r7_mover_controller/safety_rate", safety_rate_);
-  nh_.getParam("seed_r7_mover_controller/safety_duration", safety_duration_);
+  nh_.getParam("/seed_r7_mover_controller/ros_rate", ros_rate_);
+  nh_.getParam("/seed_r7_mover_controller/odom_rate", odom_rate_);
+  nh_.getParam("/seed_r7_mover_controller/safety_rate", safety_rate_);
+  nh_.getParam("/seed_r7_mover_controller/safety_duration", safety_duration_);
   nh_.getParam("/joint_settings/wheel/aero_index", aero_index_);
 
   num_of_wheels_ = aero_index_.size();
@@ -37,7 +37,7 @@ robot_hardware::MoverController::MoverController
   base_spinner_.start();
 */
 
-  cmd_vel_sub_ = nh_.subscribe("/cmd_vel",1, &MoverController::cmdVelCallback,this);
+  cmd_vel_sub_ = nh_.subscribe("cmd_vel",1, &MoverController::cmdVelCallback,this);
   safe_timer_ = nh_.createTimer(ros::Duration(safety_rate_), &MoverController::safetyCheckCallback, this);
 
   // for odometory
