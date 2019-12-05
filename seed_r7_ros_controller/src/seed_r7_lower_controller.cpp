@@ -107,7 +107,15 @@ void robot_hardware::LowerController::onServo(bool _value)
 
 float robot_hardware::LowerController::getBatteryVoltage()
 {
-  if(is_open_) return lower_->getTemperatureVoltage(31)[0] * 0.1;
+  std::vector<uint16_t> current;
+  std::vector<uint16_t> temp_voltage;
+
+  if(is_open_){
+    current = lower_->getCurrent(0);
+    temp_voltage = lower_->getTemperatureVoltage(0);
+
+    return temp_voltage[31] * 0.1;
+  }
   else return 0;
 }
 
