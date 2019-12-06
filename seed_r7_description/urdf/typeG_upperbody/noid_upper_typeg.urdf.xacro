@@ -480,7 +480,7 @@
     <origin xyz="0 0 0.005" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -120 to 120 degrees-->
-    <limit lower="-2.09" upper="2.09" effort="500" velocity="0.6" />
+    <limit lower="-2.09" upper="2.09" effort="500" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="waist_y_joint" />
@@ -491,7 +491,7 @@
     <origin xyz="0 0 0.132" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -10 to 46 degrees-->
-    <limit lower="-0.17" upper="0.8" effort="2000" velocity="0.5" />
+    <limit lower="-0.17" upper="0.8" effort="2000" velocity="1.6" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="waist_p_joint" />
@@ -502,7 +502,7 @@
     <origin xyz="0 0 0" rpy="0 -0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -7 to 7 degrees-->
-    <limit lower="-0.12" upper="0.12" effort="2000" velocity="0.4" />
+    <limit lower="-0.12" upper="0.12" effort="2000" velocity="1.3" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="waist_r_joint" />
@@ -514,7 +514,7 @@
     <axis   xyz="0 0.984808 -0.173648"/>
     <!-- from -82 to 18 degrees-->
     <!-- <limit lower="-1.535" upper="0.261" effort="200" velocity="0.4" /> -->
-    <limit lower="-1.39" upper="0.31" effort="200" velocity="0.4" /> -->
+    <limit lower="-1.39" upper="0.31" effort="200" velocity="0.6" /> -->
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_shoulder_p_joint" />
@@ -525,7 +525,7 @@
     <origin xyz="0 0.059778 0.028046" rpy="0 0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -10 to 90 degrees-->
-    <limit lower="-0.17" upper="1.57" effort="100" velocity="0.57" />
+    <limit lower="-0.17" upper="1.57" effort="100" velocity="1.0" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_shoulder_r_joint" />
@@ -536,7 +536,7 @@
     <origin xyz="0 -0.01 -0.0455" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -180 to 180 degrees-->
-    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.2" />
+    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_shoulder_y_joint" />
@@ -547,7 +547,7 @@
     <origin xyz="0.028031 0 -0.229459" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -171 to 0 degrees-->
-    <limit lower="-3.0" upper="0" effort="100" velocity="1.79" />
+    <limit lower="-3.0" upper="0" effort="100" velocity="4.4" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_elbow_joint" />
@@ -558,7 +558,7 @@
     <origin xyz="-0.020959 0 -0.137531" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -180 to 180 degrees-->
-    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.3" />
+    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.9" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_wrist_y_joint" />
@@ -569,7 +569,7 @@
     <origin xyz="0 0 -0.124" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -8 to 8 degrees-->
-    <limit lower="-0.139" upper="0.139" effort="100" velocity="0.9" />
+    <limit lower="-0.139" upper="0.139" effort="100" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="l_wrist_p_joint" />
@@ -580,7 +580,7 @@
     <origin xyz="0 0 0" rpy="0 -0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -90 to 20 degrees-->
-    <limit lower="-1.51" upper="0.34" effort="100" velocity="1.8" />
+    <limit lower="-1.51" upper="0.34" effort="100" velocity="3.4" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_wrist_r_joint" />
@@ -598,7 +598,7 @@
     <origin xyz="0.002 0 0.302" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -120 to 120 degrees-->
-    <limit lower="-2.09" upper="2.09" effort="100" velocity="1.6" />
+    <limit lower="-2.09" upper="2.09" effort="100" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="neck_y_joint" />
@@ -609,7 +609,7 @@
     <origin xyz="0.015 0 0.105" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -50 to 40 degrees-->
-    <limit lower="-0.87" upper="0.69" effort="100" velocity="2.1" />
+    <limit lower="-0.87" upper="0.69" effort="100" velocity="4.0" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="neck_p_joint" />
@@ -620,7 +620,7 @@
     <origin xyz="0 0 0" rpy="0 -0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -20 to 20 degrees-->
-    <limit lower="-0.34" upper="0.34" effort="100" velocity="0.8" />
+    <limit lower="-0.34" upper="0.34" effort="100" velocity="1.6" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="neck_r_joint" />
@@ -631,7 +631,7 @@
     <origin xyz="-0.018 -0.134147 0.251907" rpy="0 -0 0 "/>
     <axis   xyz="0 0.984808 0.173648"/>
     <!-- from -82 to 18 degrees-->
-    <limit lower="-1.39" upper="0.31" effort="200" velocity="0.4" /> -->
+    <limit lower="-1.39" upper="0.31" effort="200" velocity="0.6" /> -->
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_shoulder_p_joint" />
@@ -642,7 +642,7 @@
     <origin xyz="0 -0.059778 0.028046" rpy="0 -0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -90 to 10 degrees-->
-    <limit lower="-1.5707" upper="0.17" effort="100" velocity="0.57" />
+    <limit lower="-1.5707" upper="0.17" effort="100" velocity="1.0" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_shoulder_r_joint" />
@@ -653,7 +653,7 @@
     <origin xyz="0 0.01 -0.0455" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -180 to 180 degrees-->
-    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.2" />
+    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_shoulder_y_joint" />
@@ -664,7 +664,7 @@
     <origin xyz="0.028031 0 -0.229459" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -171 to 0 degrees-->
-    <limit lower="-3.0" upper="0" effort="100" velocity="1.79" />
+    <limit lower="-3.0" upper="0" effort="100" velocity="4.4" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_elbow_joint" />
@@ -675,7 +675,7 @@
     <origin xyz="-0.020959 0 -0.137531" rpy="0 -0 0 "/>
     <axis   xyz="0 0 1"/>
     <!-- from -180 to 180 degrees-->
-    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.3" />
+    <limit lower="-1.5707" upper="1.5707" effort="100" velocity="1.9" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_wrist_y_joint" />
@@ -686,7 +686,7 @@
     <origin xyz="0 0 -0.124" rpy="0 -0 0 "/>
     <axis   xyz="0 1 0"/>
     <!-- from -8 to 8 degrees-->
-    <limit lower="-0.139" upper="0.139" effort="100" velocity="0.9" />
+    <limit lower="-0.139" upper="0.139" effort="100" velocity="1.7" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_wrist_p_joint" />
@@ -697,7 +697,7 @@
     <origin xyz="0 0 0" rpy="0 -0 0 "/>
     <axis   xyz="1 0 0"/>
     <!-- from -20 to 90 degrees-->
-    <limit lower="-0.34" upper="1.51" effort="100" velocity="1.8" />
+    <limit lower="-0.34" upper="1.51" effort="100" velocity="3.4" />
     <dynamics damping="0.2" friction="0" />
   </joint>
   <xacro:gazebo_transmission joint_name="r_wrist_r_joint" />
