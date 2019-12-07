@@ -18,8 +18,9 @@ static:
     subscribe_to_updates: true
 
 obstacles_laser:
-    observation_sources: laser
+    observation_sources: laser camera
     laser: {data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true}
+    camera: {data_type: LaserScan, clearing: true, marking: true, topic: rear_camera_scan, inf_is_valid: true}
 
 #costmap radius
 inflation:
