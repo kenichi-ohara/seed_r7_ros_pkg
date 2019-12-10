@@ -12,16 +12,16 @@ TebLocalPlannerROS:
   global_plan_overwrite_orientation: True
   max_global_plan_lookahead_dist: 3.0
   feasibility_check_no_poses: 5
-  allow_init_with_backwards_motion: True
+  allow_init_with_backwards_motion: False
 
  # Robot
   max_vel_x: 0.5
   max_vel_y: 0.5
-  max_vel_x_backwards: 0.5
-  max_vel_theta: 0.5
-  acc_lim_x: 0.2
-  acc_lim_y: 0.2
-  acc_lim_theta: 0.4
+  max_vel_x_backwards: 0.2
+  max_vel_theta: 0.6
+  acc_lim_x: 0.15
+  acc_lim_y: 0.15
+  acc_lim_theta: 0.2
   min_turning_radius: 0.0
   footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
     type: "line"
@@ -54,7 +54,7 @@ TebLocalPlannerROS:
   weight_acc_lim_x: 1
   weight_acc_lim_y: 1
   weight_acc_lim_theta: 1
-  weight_kinematics_nh: 10
+  weight_kinematics_nh: 50
   weight_kinematics_forward_drive: 1
   weight_kinematics_turning_radius: 0.1
   weight_optimaltime: 1

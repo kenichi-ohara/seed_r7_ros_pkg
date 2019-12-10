@@ -117,7 +117,13 @@ float robot_hardware::LowerController::getBatteryVoltage()
     return temp_voltage[31] * 0.1;
   }
   else return 0;
+
+/*
+  if(is_open_) return lower_->getTemperatureVoltage(31)[0] * 0.1;
+  else return 0;
+*/
 }
+
 
 std::string robot_hardware::LowerController::getFirmwareVersion()
 {
