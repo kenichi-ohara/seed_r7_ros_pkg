@@ -15,10 +15,10 @@ TebLocalPlannerROS:
   allow_init_with_backwards_motion: False
 
  # Robot
-  max_vel_x: 0.5
-  max_vel_y: 0.5
+  max_vel_x: 0.3
+  max_vel_y: 0.3
   max_vel_x_backwards: 0.2
-  max_vel_theta: 0.6
+  max_vel_theta: 0.3
   acc_lim_x: 0.15
   acc_lim_y: 0.15
   acc_lim_theta: 0.2
