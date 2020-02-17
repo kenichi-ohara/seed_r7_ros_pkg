@@ -44,8 +44,12 @@ robot_hardware::MoverController::MoverController
   odom_pub_ = nh_.advertise<nav_msgs::Odometry>("odom", 1);
   odom_timer_ = nh_.createTimer(ros::Duration(odom_rate_), &MoverController::calculateOdometry, this);
 
+  initialpose_pub_ = nh_.advertise<geometry_msgs::PoseWithCovarianceStamped>("/initialpose", 1);
   led_control_server_
     = nh_.advertiseService("led_control", &MoverController::ledControlCallback,this);
+
+  set_initialpose_server_
+    = nh_.advertiseService("set_initialpose", &MoverController::SetInitialPoseCallback,this);
 }
 
 //////////////////////////////////////////////////
@@ -137,6 +141,25 @@ void robot_hardware::MoverController::safetyCheckCallback(const ros::TimerEvent&
 }
 
 //////////////////////////////////////////////////
+bool robot_hardware::MoverController::SetInitialPoseCallback
+(seed_r7_ros_controller::SetInitialPose::Request& _req,
+seed_r7_ros_controller::SetInitialPose::Response& _res)
+{
+  geometry_msgs::PoseWithCovarianceStamped initial_pose;
+  geometry_msgs::Quaternion pose_quat = tf::createQuaternionMsgFromYaw(_req.theta);
+  
+  initial_pose.header.stamp = ros::Time::now();
+  initial_pose.header.frame_id = "map";
+  initial_pose.pose.pose.position.x = _req.x;
+  initial_pose.pose.pose.position.y = _req.y;
+  initial_pose.pose.pose.position.z = 0.0;
+  initial_pose.pose.pose.orientation = pose_quat;
+  initialpose_pub_.publish(initial_pose);
+
+  return "succeeded";
+}
+
+
 /// @brief odometry publisher
 void robot_hardware::MoverController::calculateOdometry(const ros::TimerEvent& _event)
 {

@@ -101,6 +101,8 @@ void robot_hardware::LowerController::onServo(bool _value)
   if(is_open_){
     for(size_t i=0; i< wheel_aero_index_.size() ; ++i){
       lower_->onServo(wheel_aero_index_[i] + 1, _value);
+      //reset present position
+      lower_->throughCAN(wheel_aero_index_[i] + 1, 0x6F,0,1,0,0,0);
     }
   }
 }
@@ -110,6 +112,7 @@ float robot_hardware::LowerController::getBatteryVoltage()
   std::vector<uint16_t> current;
   std::vector<uint16_t> temp_voltage;
 
+/*
   if(is_open_){
     current = lower_->getCurrent(0);
     temp_voltage = lower_->getTemperatureVoltage(0);
@@ -117,11 +120,10 @@ float robot_hardware::LowerController::getBatteryVoltage()
     return temp_voltage[31] * 0.1;
   }
   else return 0;
+*/
 
-/*
   if(is_open_) return lower_->getTemperatureVoltage(31)[0] * 0.1;
   else return 0;
-*/
 }
 
 

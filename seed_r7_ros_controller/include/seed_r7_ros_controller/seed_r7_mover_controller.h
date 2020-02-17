@@ -10,11 +10,12 @@
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
 #include <tf/transform_broadcaster.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 
 #include "seed_r7_ros_controller/seed_r7_lower_controller.h"
 #include "seed_r7_ros_controller/seed_r7_robot_hardware.h"
 #include "seed_r7_ros_controller/LedControl.h"
-
+#include "seed_r7_ros_controller/SetInitialPose.h"
 
 #define MAX_ACC_X 1.0
 #define MAX_ACC_Y 1.0
@@ -40,18 +41,21 @@ class MoverController
  private: 
   void cmdVelCallback(const geometry_msgs::TwistConstPtr& _cmd_vel);
   void safetyCheckCallback(const ros::TimerEvent& _event);
+  bool SetInitialPoseCallback(seed_r7_ros_controller::SetInitialPose::Request& _req, seed_r7_ros_controller::SetInitialPose::Response& _res); 
+  void resetOdometry();
   void calculateOdometry(const ros::TimerEvent& _event);
   void velocityToWheel(double _linear_x, double _linear_y, double _angular_z, std::vector<int16_t>& _wheel_vel);
   bool ledControlCallback(seed_r7_ros_controller::LedControl::Request& _req, seed_r7_ros_controller::LedControl::Response& _res);
 
   ros::NodeHandle nh_;
-  ros::Publisher odom_pub_;
+  ros::Publisher odom_pub_,initialpose_pub_;
   ros::Time current_time_, last_time_, time_stamp_;
   ros::Timer odom_timer_, safe_timer_;
   ros::Subscriber cmd_vel_sub_;
   tf::TransformBroadcaster odom_broadcaster_;
 
   ros::ServiceServer led_control_server_;
+  ros::ServiceServer set_initialpose_server_;
 
 /*
   ros::SubscribeOptions base_ops_;
